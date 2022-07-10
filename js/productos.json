@@ -1,0 +1,32 @@
+[
+        {
+            "producto":"Curso auto-maquillaje",
+            "precio":"8000",
+            "iva":"1.21"    
+        },
+        {
+            "producto":"Curso de pieles",
+            "precio":6000,
+            "iva":1.21
+        },
+        {
+            "producto":"Curso de ojos",
+            "precio":4000,
+            "iva":1.21
+        },
+        {
+            "producto":"Curso de delineados",
+            "precio":5000,
+            "iva":1.21
+        },
+        {
+            "producto":"Curso pieles glow",
+            "precio":4000,
+            "iva":1.21
+        },
+        {
+            "producto":"Curso maquillaje profesional",
+            "precio":10000,
+            "iva":1.21
+        }
+]  
