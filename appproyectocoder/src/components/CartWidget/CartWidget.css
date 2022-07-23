@@ -1,0 +1,17 @@
+.foto1 {
+    display: flex;    
+    max-width: 250px;
+    max-height: 50px;
+    background-color: white;
+    margin-left: 1450px;
+    margin-top: 25px;
+    
+}
+.numero {
+    font-size: 65px;
+    display: flex;
+    flex-direction: row-;
+    margin-left: -30px;
+    margin-top: 0px;
+
+}
