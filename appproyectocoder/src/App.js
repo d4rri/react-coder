@@ -1,17 +1,20 @@
-import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-// import Counter from './Counter/Counter';
+
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Counter from './components/Counter/Counter';
 
 function App() {
-  // const imagen = <img src="url" alt="imagen" />
+
+  const handleOnAdd = (quantity) => {
+    console.log(`la cantidad agregada es: ${quantity}`)
+  }
 
   return (
-    <div className="App">
+    <div className="App"> 
       <Navbar />
-      {/* <Counter /> */}
-      <ItemListContainer greeting='BIENVENIDO'/>
+      <ItemListContainer greeting='Bienvenidos'/>
+      <Counter stock={10} onAdd={handleOnAdd}/>
     </div>
   );
 }
