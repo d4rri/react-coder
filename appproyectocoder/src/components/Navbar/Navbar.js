@@ -1,27 +1,21 @@
-import './nav.css'
-import Button from '../Button/Button'
+import './Navbar.css'
 import CartWidget from '../CartWidget/CartWidget'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-
-    const text = 'hice click'
-
-    const handleClick = () => {
-        console.log(text)
-    }
-
     return (
-        <nav className="container text-center ">
-            <div>
-                <h1>Cursos</h1>
-            </div>
-            <div className="d-flex justify-content-center nav gap-3">
-                <Button handleClick={handleClick} color='blue' className="p-2">Curso auto-maquillaje</Button>
-                <Button handleClick={handleClick} color='blue' className="p-2">Curso de pieles</Button>
-                <Button handleClick={handleClick} color='blue' className="p-2">Curso profesional</Button>
+        <nav className='Navbar'>
+            <Link to='/'>
+                ECOMMERCE
+            </Link>
+            <div className="Categories">
+                <Link to='/category/curso amateur' className="Option">Cursos Amateurs</Link>
+                <Link to='/category/curso inicial' className="Option">Cursos Iniciales</Link>
+                <Link to='/category/curso profesional' className="Option">Cursos Profesionales</Link>
             </div>
             <CartWidget />
         </nav>
+        
     )
 }
 
