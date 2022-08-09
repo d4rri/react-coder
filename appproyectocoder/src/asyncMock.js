@@ -7,7 +7,7 @@ const products = [
     { id: '6', name: 'Curso maquillaje profesional', price: 10000, category: 'curso profesional', img:'https://cdn2.actitudfem.com/media/files/images/2020/11/que-es-el-maquillaje-euphoria1.jpg', stock: 10, description:'En este curso aprenderás lo necesario para ser una profesional en el mundo del maquillaje'},
 ]
 
-export const getProductsDeAlfredo = () => {
+export const getProducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(products)

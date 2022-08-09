@@ -1,11 +1,20 @@
 import './CartWidget.css'
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import CartContext from '../../context/CartContext'
 
 const CartWidget = () => {
+
+    const { getQuantity } = useContext(CartContext)
+
+    const quantity = getQuantity()
+
     return (
-        <div className='numero gap-3'>
+        <Link to='/cart' className='CartWidget numero gap-3'>
             <img src='../images/carrito.png' className='img-fluid justify-content-start foto1' alt='CartWidget'/>
-            0
-        </div>
+            { quantity }
+            
+        </Link>
     )
 }
 

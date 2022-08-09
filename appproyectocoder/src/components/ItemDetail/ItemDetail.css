@@ -1,5 +1,5 @@
 .CardItem {
-    width: 150px;
+    width: 500px;
     padding: 30px;
     margin: 30px;
     font-size: 10px;
@@ -8,7 +8,7 @@
     border-radius: 10px;
 }
 
-.Header {
+.ContainerItem {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -26,7 +26,7 @@
     justify-content: space-around;
 }
 
-.ButtonDetail {
+.Button {
     width: auto;
     padding: 12px;
     font-size: 8px;
@@ -52,9 +52,4 @@
     height: 100px;
     object-fit: cover;
     object-position: center;
-}
-
-.ItemFooter {
-    display: flex;
-    justify-content: center;
 }

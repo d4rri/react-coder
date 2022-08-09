@@ -14,8 +14,8 @@ $ npm start
 ```
 Route / muestra ItemListContainer, muestra todos los productos.
 Route /CategoryID muestra ItemListContainer, filtrando por categoría.
-Route /Detail/ProductID muestra ItemDetailContainer mostrando el detalle del producto dependiendo del paramtro de URL.
-
+Route /Detail/ProductID muestra ItemDetailContainer mostrando el detalle del producto dependiendo del paramtro de URL.  
+Archivo .gif /public/ReactGIF.gif
 ## Environment Variables
 
 See [`.env.example`](https://github.com/szuviria/zuvcommerce/blob/main/.env.example) for an example.
