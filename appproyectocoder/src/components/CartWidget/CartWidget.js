@@ -10,7 +10,7 @@ const CartWidget = () => {
     const quantity = getQuantity()
 
     return (
-        <Link to='/cart' className='CartWidget numero gap-3'>
+        <Link to='/Cart' className='CartWidget numero gap-3'>
             <img src='../images/carrito.png' className='img-fluid justify-content-start foto1' alt='CartWidget'/>
             { quantity }
             
