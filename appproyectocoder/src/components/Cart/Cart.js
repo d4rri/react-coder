@@ -1,31 +1,30 @@
 import './Cart.css'
-import {useContext } from 'react'
+import { useContext } from "react"
 import CartContext from '../../context/CartContext'
+import CartItem from '../CartItem/CartItem'
+import { Link } from 'react-router-dom'
 
-const CartCarrito = ({ id, name, img, category, description, price, stock }) => {
+const Cart = () => {
+    const { cart, clearCart, getQuantity, getTotal } = useContext(CartContext)  
 
-    const {addItem, getQuantity} = useContext(CartContext)
+    const totalQuantity = getQuantity()
+    const total = getTotal()
 
-    const quantity = getQuantity()
+    if(totalQuantity === 0) {
+        return (
+            <h1>No hay items en el carrito</h1>
+        )
+    }
 
-    const cart = addItem()
-
-    return (
-        <ul className="list-group mb-3 p-3">
-        <li className="list-group-item d-flex justify-content-between lh-sm">
+    return (     
         <div>
-            <h6 className="my-0">${cart.name || "Ingrese un producto"}</h6> 
-            <small className="">Iva:${cart.category || "Ingrese un producto"}</small>  
+            <h1>Cart</h1>
+            { cart.map(p => <CartItem key={p.id} {...p}/>) }
+            <h3>Total: ${total}</h3>
+            <button onClick={() => clearCart()} className="Button">Limpiar carrito</button>
+            <Link to='/checkout' className='Option'>Checkout</Link>
         </div>
-            <span className="">Precio del producto: $${cart.price || "Ingrese un producto"}</span> 
-        </li>
-        <li className="list-group-item d-flex justify-content-between">
-            <p>Total: $${quantity || "Ingrese un producto"}</p>
-        </li>          
-        </ul>                            
-        )}
+    )
+}
 
-
-
-
-export default CartCarrito
+export default Cart

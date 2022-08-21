@@ -6,12 +6,13 @@ import CartContext from '../../context/CartContext'
 import NotificationContext from '../../notification/Notification'
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
-    const [quantityToAdd, setQuantityToAdd] = useState(0)
 
+    const [quantityToAdd, setQuantityToAdd] = useState(0)
     const { addItem, getProductQuantity } = useContext(CartContext)
     const { setNotification } = useContext(NotificationContext)
 
     const handleOnAdd = (quantity) => {
+        
         setQuantityToAdd(quantity)
 
         const productToAdd = {
@@ -50,7 +51,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                     quantityToAdd === 0 ? (
                         <ItemCount onAdd={handleOnAdd} stock={stock} initial={productQuantity}/>
                     ) : (
-                        <Link to='/cart'>Finalizar compra</Link>
+                        <Link to='/Cart'>Finalizar compra</Link>
                     )
                 }
             </footer>
