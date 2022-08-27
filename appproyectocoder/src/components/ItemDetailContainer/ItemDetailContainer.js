@@ -12,6 +12,7 @@ const ItemDetailContainer = () => {
     const { productId } = useParams()
 
     useEffect(() => {
+
         getDoc(doc(db, 'products', productId)).then(response => {
             const data = response.data()
             const productAdapted = { id: response.id, ...data}
@@ -21,6 +22,7 @@ const ItemDetailContainer = () => {
         }).finally(() => {
             setLoading(false)
         })
+
     }, [productId])
 
     if(loading) {
@@ -29,7 +31,7 @@ const ItemDetailContainer = () => {
 
     return(
         <div className='ItemDetailContainer' >
-            <ItemDetail {...product} />
+            {loading ? <h1>Cargando...</h1> : <ItemDetail {...product} />}
         </div>
     )
 }

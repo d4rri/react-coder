@@ -5,7 +5,7 @@
     padding: 20px;
     margin: 30px;
     font-size: 10px;
-    background-color: papayawhip;
+    background-color: rgb(59, 51, 94);
     border: 1px solid #e1e1e1;
     border-radius: 10px;
 }
@@ -22,19 +22,21 @@
 .ItemHeaderCartItem {
     display: flex;
     justify-content: space-between;
+    color: hsl(26deg, 77%, 59%);
 }
 
 .InfoCartItem {
     font-size: 12px;
     display: flex;
     justify-content: space-between;
+    color: hsl(26deg, 77%, 59%);
 }
 
 .ButtonCartItem {
     width: auto;
     padding: 12px;
     font-size: 8px;
-    background: #8C30F5;
+    background: rgb(98, 95, 109);
     border-radius: 8px;
     flex: none;
     display: flex;

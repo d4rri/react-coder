@@ -1,28 +1,39 @@
+import './Checkout.css'
 import { useState, useContext } from "react"
 import CartContext from "../../context/CartContext"
 import { db } from "../../services/firebase"
-import { addDoc, collection,getDocs, query, where, documentId, writeBatch } from "firebase/firestore"
+import { addDoc, collection, getDocs, query, where, documentId, writeBatch } from "firebase/firestore"
 import { useNavigate } from 'react-router-dom'
 
-const Checkout = () => {
+const Checkout = () => {    
+
     const [isLoading, setIsLoading] = useState(false)
     const [orderCreated, setOrderCreated] = useState(false)
     const { cart, getQuantity, getTotal, clearCart } = useContext(CartContext) 
 
     const navigate = useNavigate()
-
     const totalQuantity = getQuantity()
     const total = getTotal()
+
+    
+    const [form, setForm] = useState()
+
+    const handleInputChange = (event) => {
+        setForm({
+            ...form,
+            [event.target.name] : event.target.value
+        })
+    }
 
     const createOrder = async () => {
         setIsLoading(true)
         try {
             const objOrder = {
                 buyer: {
-                    firstName: 'Agustin',
-                    lastName: 'Darricau',
-                    phone: '123456789',
-                    address: 'direccion 123'
+                    firstName: form.firstName,
+                    lastName: form.lastName,
+                    phone: form.phone,
+                    address: form.address
                 },
                 items: cart,
                 totalQuantity,
@@ -87,10 +98,34 @@ const Checkout = () => {
     }
 
     return (
-        <>
-            <h1>Checkout</h1>
-            <h2>Formulario</h2>
-            <button className="Option" onClick={createOrder}>Generar Orden</button>
+        <>  
+        {
+                <div className="container col-xxl-10 col-xxl-8 px-4 py-5 galeria2 carrusel">
+                    <div className="row align-items-center g-lg-5 py-5">
+                        <div className="col-lg-7 text-center text-lg-start">
+                            <h1 className="display-4 fw-bold lh-1 mb-3 foto2">Regístrate en nuestra plataforma</h1>
+                            <p className="col-lg-10 fs-4 foto2">Por favor rellena los siguientes campos para finalizar su compra. </p>
+                        </div>
+                    <div className="col-md-10 mx-auto col-lg-5 form2 foto6">
+                        <form className="p-4 p-md-5 rounded-3">
+                            <div className="form-floating mb-3">
+                                <input type="text" name="firstName" onChange={handleInputChange} placeholder="Ingresar nombre"></input>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input type="text" name="lastName" onChange={handleInputChange} placeholder="Ingresar apellido"></input>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input type="text" name="phone" onChange={handleInputChange} placeholder="Ingresar teléfono"></input>
+                            </div>
+                                <div className="form-floating mb-3">
+                                    <input type="text" name="address" onChange={handleInputChange} placeholder="Ingresar dirección"></input>
+                                </div>
+                        </form>
+                    </div>
+                    <button className="form3" onClick={createOrder}>Generar Orden</button>
+                    </div>
+                </div>
+                }
         </>
     )
 }

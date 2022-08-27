@@ -18,13 +18,12 @@ function App() {
           <BrowserRouter>
             <Navbar />
             <Routes>
-              <Route path='/' element={<ItemListContainer greeting='Listado de todos los productos'/>}/>
-              <Route path='/category/:categoryId' element={<ItemListContainer greeting='Listado filtrado'/>} />
+              <Route path='/' element={<ItemListContainer greeting={"Encuentra tu producto"}/>}/>
+              <Route path='/category/:categoryId' element={<ItemListContainer greeting={"Productos"}/>} />
               <Route path='/detail/:productId' element={<ItemDetailContainer />} />
               <Route path='/Cart' element={<Cart/>}/> 
               <Route path='/checkout' element={<Checkout />} />  
               <Route path='*' element={<h1>404 NOT FOUND</h1>} />
-
             </Routes>
           </BrowserRouter>
         </CartContextProvider>

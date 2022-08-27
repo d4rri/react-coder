@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <nav className='Navbar'>
             <Link to='/'>
-                ECOMMERCE
+                ECOMMERCE DE CURSOS
             </Link>
             <div className="Categories">
                 <NavLink to='/category/curso amateur' className="Option">Cursos Amateurs</NavLink>
