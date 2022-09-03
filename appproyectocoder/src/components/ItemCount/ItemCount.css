@@ -14,7 +14,7 @@
     width: auto;
     padding: 12px;
     font-size: 8px;
-    background: #8C30F5;
+    background: hsl(26deg, 77%, 59%);
     border-radius: 8px;
     display: flex;
     align-self: center;
@@ -35,6 +35,7 @@
     padding: 20px;
     margin: 0;
     order: 1;
+    color: hsl(26deg, 77%, 59%);
 }
 
 .Controls {

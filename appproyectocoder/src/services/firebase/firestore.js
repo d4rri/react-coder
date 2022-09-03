@@ -1,6 +1,7 @@
-import { getDocs, getDoc, doc, collection, query, where } from 'firebase/firestore'
+import {getDocs, getDoc, doc, collection, query, where } from 'firebase/firestore'
 import { db } from './index'
 import { createAdaptedProductFromFirestore } from '../../adapters/productAdapter'
+
 
 export const getProducts = (categoryId) => {
         const collectionRef = !categoryId 
