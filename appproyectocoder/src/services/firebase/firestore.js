@@ -27,3 +27,18 @@ export const getProductsId = (productId) => {
         return error
     })
 }
+
+export const getNavbar = (categories) => {
+
+        const collectionCategories = collection(db, 'categories');
+
+        return getDocs(collectionCategories).then((response)=> {
+                const categories = response.docs.map((snap) => {
+                    return {
+                        id: snap.id,
+                        ...snap.data(),
+                    };
+                });
+                return categories;
+            });
+}

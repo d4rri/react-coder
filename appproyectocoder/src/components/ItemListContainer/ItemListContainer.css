@@ -2,7 +2,14 @@
     justify-content: center;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     min-height: 80vh;
     color: hsl(26deg, 77%, 59%);
+}
+
+@media (max-width: 600px) {
+    .ItemListContainer {
+        flex-direction: column;
+        justify-content: end;
+    }
 }

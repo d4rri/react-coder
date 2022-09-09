@@ -1,17 +1,36 @@
 import './Navbar.css'
 import CartWidget from '../CartWidget/CartWidget'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { getNavbar } from '../../services/firebase/firestore'
+import { useAsync } from '../../hooks/useAsync'
+
+
 
 const Navbar = () => {
+
+    const {categories} = getNavbar()
+
+    const getProductsFromFirestore = () => getNavbar(categories)
+
+    const {data, error, isLoading} = useAsync(getProductsFromFirestore, [categories])
+
+    if(isLoading) {
+        return <h1>Cargando...</h1>
+    }
+
+    if(error) {
+        return <h1>Hubo un error</h1>
+    }
+
     return (
         <nav className='Navbar'>
-            <Link to='/'>
+            <Link style={{fontSize: '30px'}} to='/'>
                 ECOMMERCE DE CURSOS
             </Link>
             <div className="Categories">
-                <NavLink to='/category/curso amateur' className="Option">Cursos Amateurs</NavLink>
-                <NavLink to='/category/curso inicial' className="Option">Cursos Iniciales</NavLink>
-                <NavLink to='/category/curso profesional' className="Option">Cursos Profesionales</NavLink>
+                {data.map((category)=> (
+                    <Link style={{margin: '0px 50px'}} key={category.id} to={category.path}>{category.name}</Link>
+                ))}
             </div>
             <CartWidget />
         </nav>

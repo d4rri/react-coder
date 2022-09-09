@@ -26,7 +26,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const productQuantity = getProductQuantity(id)
 
     return (
-        <article className="CardItem">
+        <article className="CardItem ContainerItem">
             <header className="Header">
                 <h2 className="ItemHeader">
                     {name}

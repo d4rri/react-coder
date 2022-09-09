@@ -53,3 +53,15 @@
     object-fit: cover;
     object-position: center;
 }
+
+@media (max-width: 600px) {
+    .CardItem {
+        width: 500px;
+        padding: 30px;
+        margin: 30px;
+        font-size: 10px;
+        background-color: rgb(59, 51, 94);
+        border: 1px solid #e1e1e1;
+        border-radius: 10px;
+    }
+}

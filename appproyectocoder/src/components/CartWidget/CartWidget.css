@@ -13,3 +13,51 @@
     margin-top: 0px;
 
 }
+
+@media (max-width:900px) {
+    .foto1 {
+        margin-left: 800px;
+        margin-top:30px;
+        
+    }
+    .numero {
+        font-size: 65px;
+        display: flex;
+        margin-top: 30px;
+        margin-left: -220px;
+    
+    }
+
+}
+
+@media (max-width:600px) {
+    .foto1 {
+        margin-left: 300px;
+        margin-top:22px;
+        
+    }
+    .numero {
+        font-size: 65px;
+        display: flex;
+        margin-top: 15px;
+        margin-left: -35px;
+    
+    }
+}
+
+@media (max-width:400px){
+    .foto1 {
+        margin-left: 15px;
+        margin-top:5px;
+        
+    }
+    .numero {
+        font-size: 45px;
+        display: flex;
+        margin-top: 5px;
+        margin-left: 200px;
+    
+    }
+
+}
+
