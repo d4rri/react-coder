@@ -1,7 +1,9 @@
-import {getDocs, getDoc, doc, collection, query, where } from 'firebase/firestore'
+import {getDocs, getDoc, doc, collection, query, where,  documentId, writeBatch, addDoc } from 'firebase/firestore'
 import { db } from './index'
 import { createAdaptedProductFromFirestore } from '../../adapters/productAdapter'
 import { createAdaptedNavbarFromFirestore } from '../../adapters/navbarAdapter'
+
+
 
 
 export const getProducts = (categoryId) => {
@@ -39,4 +41,47 @@ export const getNavbar = (categories) => {
                 });
                 return categories;
             });
+}
+
+export const getCheckout = async (objOrder, cart, clearCart) => {
+
+    let orderAdded = []
+
+    const ids = cart.map(prod => prod.id)
+    
+    const productsRef = collection(db, 'products')
+
+    const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), 'in', ids)))
+    
+    const { docs } = productsAddedFromFirestore
+
+    const outOfStock = []
+
+    const batch = writeBatch(db)
+
+    docs.forEach(doc => {
+        const dataDoc = doc.data()
+        const stockDb = dataDoc.stock
+
+        const productAddedToCart = cart.find(prod => prod.id === doc.id)
+        const prodQuantity = productAddedToCart?.quantity
+
+        if(stockDb >= prodQuantity) {
+            batch.update(doc.ref, { stock: stockDb - prodQuantity})
+        } else {
+            outOfStock.push({ id: doc.id, ...dataDoc})
+        }
+    })
+
+    if(outOfStock.length === 0) {
+        await batch.commit()
+
+        const orderRef = collection(db, 'orders')
+        orderAdded = await addDoc(orderRef, objOrder)
+
+        clearCart()
+        return orderAdded
+
+    }
+    return orderAdded
 }

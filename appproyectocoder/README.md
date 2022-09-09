@@ -14,7 +14,11 @@ $ npm start
 ```
 Route / muestra ItemListContainer, muestra todos los productos.
 Route /CategoryID muestra ItemListContainer, filtrando por categoría.
-Route /Detail/ProductID muestra ItemDetailContainer mostrando el detalle del producto dependiendo del paramtro de URL.  
+Route /Detail/ProductID muestra ItemDetailContainer mostrando el detalle del producto dependiendo del parametro de URL.
+Route /Cart muestra Cart, mostrando los productos agregados al carrito.
+Route /Checkout muestra Checkout, mostrando un formulario para completar datos y un boton para generar la orden correspondiente. 
+Route/* muestra un titulo en caso de error 404.
+
 Archivo .gif /public/ReactGIF.gif
 ## Environment Variables
 

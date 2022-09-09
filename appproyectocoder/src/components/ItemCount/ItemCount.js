@@ -2,6 +2,7 @@ import './ItemCount.css'
 import { useState, useEffect } from 'react'
 
 const ItemCount = ({stock = 0, initial = 1, onAdd})=> {
+    
    const [quantity, setQuantity] = useState(initial)
 
    useEffect(() => {
