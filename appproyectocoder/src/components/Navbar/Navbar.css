@@ -12,7 +12,7 @@
     align-items: center;
     color: hsl(26deg, 77%, 59%);
     font-family: "Oswald", sans-serif;
-    font-size: 22px;
+    font-size: 28px;
     display: flex;
     justify-content:center;
     text-align: center;
@@ -20,8 +20,9 @@
     text-shadow: 5px 5px 10px rgb(59, 51, 94);
     background-color:hsl(26deg, 77%, 59%) ;
     border: inset;
-    margin-left: 500px;
-    margin-right: 500px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
 
   }
   
@@ -74,9 +75,5 @@
   
   .NavLink {
     color :rgb(255, 0, 0)
-  }
-
-  .CategoryOnly {
-    margin: '0px 6px 6px 12px' ;
   }
 

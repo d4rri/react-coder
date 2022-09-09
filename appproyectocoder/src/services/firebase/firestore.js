@@ -1,6 +1,7 @@
 import {getDocs, getDoc, doc, collection, query, where } from 'firebase/firestore'
 import { db } from './index'
 import { createAdaptedProductFromFirestore } from '../../adapters/productAdapter'
+import { createAdaptedNavbarFromFirestore } from '../../adapters/navbarAdapter'
 
 
 export const getProducts = (categoryId) => {
@@ -34,10 +35,7 @@ export const getNavbar = (categories) => {
 
         return getDocs(collectionCategories).then((response)=> {
                 const categories = response.docs.map((snap) => {
-                    return {
-                        id: snap.id,
-                        ...snap.data(),
-                    };
+                    return createAdaptedNavbarFromFirestore(snap)
                 });
                 return categories;
             });
