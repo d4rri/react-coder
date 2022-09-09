@@ -57,7 +57,7 @@ const Checkout = () => {
             navigate('/')
         }, 3000)
         return (<div>
-            <h1>{`Tu orden se esta generando con el siguiente id: ${objOrder.id}`}</h1>         
+            <h1>{`Tu orden se genero con el siguiente id: ${objOrder.id},Gracias por tu compra`}</h1>         
         </div>)}      
 
     if(isLoading) {
@@ -89,7 +89,7 @@ const Checkout = () => {
                                 </div>
                         </form>
                     </div>
-                    <button className="form3" onClick={createOrder}>Generar Orden</button>
+                    <button style= {{margin:'20px 30px 20px 260px'}}className="form3" onClick={createOrder}>Generar Orden</button>
                     </div>
                 </div>
                 }
